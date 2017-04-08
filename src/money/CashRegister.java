@@ -70,32 +70,30 @@ public class CashRegister {
 		int coins = (int)cents;
 		System.out.println("coins: " + coins);
 
-		while (coins != 0) {
-			int quarters = 0;
-			int dimes = 0;
-			int nickels = 0;
-			int pennies = 0;
-			
-			if (coins >= 25) {
-				quarters = coins / 25;
+		while (cents != 0) {
+			int quarters = coins / 25;
+			if (quarters > 0) {
+				coins = coins % 25;
 				System.out.println(quarters + " quarters");
 			}
-
-			if (coins >= 10) {
-				coins = coins - (25 * quarters);
-				dimes = coins / 10;
+			int dimes = coins / 10;
+			if (dimes > 0) {
+				coins = coins % 10;
 				System.out.println(dimes + " dimes");
 			}
-			if (coins >= 5 && coins % 25 != 0 && coins % 10 !=0) {
-				//coins = coins - 25 * quarters + 10 * dimes;
-				nickels = coins % 5;
+			int nickels = coins / 5;
+			if (nickels > 0) {
+				coins = coins % 5;
 				System.out.println(nickels + " nickels");
 			}
-			if (nickels >= 1 || coins < 10) {
+			int pennies = coins;
+			//System.out.println(pennies + " pennies");
+			if (coins % 5 > 0) {
 				pennies = coins % 5;
 				System.out.println(pennies + " pennies");
 				break;
 			}
+			
 		}
 	}
 }
