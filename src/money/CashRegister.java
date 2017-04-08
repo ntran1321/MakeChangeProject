@@ -14,7 +14,7 @@ public class CashRegister {
 		// Prompt user to enter tender amount
 		System.out.print("Tender amount: $");
 		double tender = input.nextDouble();
-		
+
 		input.close();
 
 		// Too little or exact amount
@@ -27,14 +27,9 @@ public class CashRegister {
 			System.out.println("Change due: $" + change);
 			int bills;
 			bills = (int) change;
-			System.out.println("Change in bills: $" + bills);
-			
+
 			double cents = change - bills;
 			cents = Math.round(cents * 100);
-			//cents = cents / 100;
-			System.out.println("cents: " + cents);
-			//int coins = (int)cents * 100;
-			//System.out.println(coins);
 
 			giveBills(change, bills);
 			giveCoins(cents);
@@ -42,58 +37,48 @@ public class CashRegister {
 	} // end main
 
 	public static void giveBills(double change, int bills) {
-		// ten dollar bills
-		//while (bills != 0) {
-			int tens = 0;
-			int fives = 0;
-			int ones = 0;
-			if (bills >= 10) {
-				tens = bills / 10;
-				System.out.println(tens + " ten dollar bills");
-			}
-
-			if (tens >= 1) {
-				bills = bills - 10 * tens;
-				fives = bills / 5;
-				System.out.println(fives + " five dollar bills");
-			}
-
-			if (fives >= 1 || bills < 5) {
-				// bills = bills - (10 * tens + 5 * fives);
-				ones = bills % 5;
-				System.out.println(ones + " one dollar bills");
-			}
+		int tens = 0;
+		int fives = 0;
+		int ones = 0;
+		if (bills >= 10) {
+			tens = bills / 10;
+			System.out.println(tens + " ten dollar bills");
 		}
-	//}
+
+		if (tens >= 1) {
+			bills = bills - 10 * tens;
+			fives = bills / 5;
+			System.out.println(fives + " five dollar bills");
+		}
+
+		if (fives >= 1 || bills < 5) {
+			ones = bills % 5;
+			System.out.println(ones + " one dollar bills");
+		}
+	}
 
 	public static void giveCoins(double cents) {
-		int coins = (int)cents;
-		System.out.println("coins: " + coins);
+		int coins = (int) cents;
+		int quarters = coins / 25;
+		if (quarters > 0) {
+			coins = coins % 25;
+			System.out.println(quarters + " quarters");
+		}
+		int dimes = coins / 10;
+		if (dimes > 0) {
+			coins = coins % 10;
+			System.out.println(dimes + " dimes");
+		}
+		int nickels = coins / 5;
+		if (nickels > 0) {
+			coins = coins % 5;
+			System.out.println(nickels + " nickels");
+		}
+		int pennies = coins;
+		if (coins % 5 > 0) {
+			pennies = coins % 5;
+			System.out.println(pennies + " pennies");
+		}
 
-		//while (cents != 0) {
-			int quarters = coins / 25;
-			if (quarters > 0) {
-				coins = coins % 25;
-				System.out.println(quarters + " quarters");
-			}
-			int dimes = coins / 10;
-			if (dimes > 0) {
-				coins = coins % 10;
-				System.out.println(dimes + " dimes");
-			}
-			int nickels = coins / 5;
-			if (nickels > 0) {
-				coins = coins % 5;
-				System.out.println(nickels + " nickels");
-			}
-			int pennies = coins;
-			//System.out.println(pennies + " pennies");
-			if (coins % 5 > 0) {
-				pennies = coins % 5;
-				System.out.println(pennies + " pennies");
-				//break;
-			}
-			
-		//}
 	}
 }
