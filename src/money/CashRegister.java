@@ -43,7 +43,7 @@ public class CashRegister {
 
 	public static void giveBills(double change, int bills) {
 		// ten dollar bills
-		while (bills != 0) {
+		//while (bills != 0) {
 			int tens = 0;
 			int fives = 0;
 			int ones = 0;
@@ -64,13 +64,13 @@ public class CashRegister {
 				System.out.println(ones + " one dollar bills");
 			}
 		}
-	}
+	//}
 
 	public static void giveCoins(double cents) {
 		int coins = (int)cents;
 		System.out.println("coins: " + coins);
 
-		while (cents != 0) {
+		//while (cents != 0) {
 			int quarters = coins / 25;
 			if (quarters > 0) {
 				coins = coins % 25;
@@ -91,9 +91,9 @@ public class CashRegister {
 			if (coins % 5 > 0) {
 				pennies = coins % 5;
 				System.out.println(pennies + " pennies");
-				break;
+				//break;
 			}
 			
-		}
+		//}
 	}
 }
