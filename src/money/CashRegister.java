@@ -16,7 +16,7 @@ public class CashRegister {
 		double tender = input.nextDouble();
 
 		input.close();
-
+		
 		// Too little or exact amount
 		if (price == tender) {
 			System.out.println("No change due.");
@@ -24,7 +24,9 @@ public class CashRegister {
 			System.out.println("You owe me more money.");
 		} else {
 			double change = tender - price;
-			System.out.println("Change due: $" + change);
+			System.out.print("Change due: $");
+			System.out.printf("%.2f", change);
+			System.out.println();
 			int bills;
 			bills = (int) change;
 
@@ -37,22 +39,19 @@ public class CashRegister {
 	} // end main
 
 	public static void giveBills(double change, int bills) {
-		int tens = 0;
-		int fives = 0;
-		int ones = 0;
-		if (bills >= 10) {
-			tens = bills / 10;
+		int tens = bills / 10;
+		if (tens > 0) {
+			bills = bills % 10;
 			System.out.println(tens + " ten dollar bills");
 		}
-
-		if (tens >= 1) {
-			bills = bills - 10 * tens;
-			fives = bills / 5;
+		int fives = bills / 5;
+		if (fives > 0) {
+			bills = bills % 5;
 			System.out.println(fives + " five dollar bills");
 		}
-
-		if (fives >= 1 || bills < 5) {
-			ones = bills % 5;
+		int ones = bills;
+		if (bills >0) {
+			// ones = bills % 5;
 			System.out.println(ones + " one dollar bills");
 		}
 	}
