@@ -13,7 +13,6 @@ The giveCoins class essentially functions the same way as the giveBills class ex
 <br/>
 
 These two methods are called on in the main class and the system outputs the amount of change due. In the event that the customer provides exact change or not enough money, the code in the methods are never executed.
-
 <br/>
 
 The most difficult part of this project was casting doubles to integers and making sure that variable types were consistent throughout the program. I found it difficult to pass the variables to the methods with all the datatype conversions. Also, I struggled with calculating the change in different denominations because my math was very complex and messy at first and then I realized how I can transfer variable information from one if statement to the next.
