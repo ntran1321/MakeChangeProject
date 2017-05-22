@@ -1,6 +1,6 @@
-## Nancy's Make Change Project
+## Make Change Project (Week 1)
 
-This is my week 1 of Skill Distillery project. My program is a basic Java program that takes input from the user on the terminal and returns the amount of change due. This project incorporates the fundamentals of Java that were covered in the first week, such as conditional statements, casting, and methods. 
+My program is a basic Java program that takes input from the user on the terminal and returns the amount of change due. This project incorporates the fundamentals of Java that were covered in the first week, such as conditional statements, casting, and methods. 
 
 In the main class, the change due is cast into the integer bills so that the decimals are dropped and we are looking at whole dollar amounts. Then, cents due is calculated by subtracting change from bills and then rounded and multiplied by 100 to make it easier to handle the calculations. These variables are then passed to the methods giveBills and giveCoins.
 
